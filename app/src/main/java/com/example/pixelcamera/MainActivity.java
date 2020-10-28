@@ -3,14 +3,15 @@ package com.example.pixelcamera;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-//The Curious Case of the Twelth Inning of the Lovers At Jazz Hands,
+//The Unlimited Tacos collect 10! Sun 2 smiles.
+//This is Luke's merge conflict.
 public class MainActivity extends AppCompatActivity {
-    //Consisting of Far More Outs Than Is Typical To The Game of Blaseball,
+    //Let's practice resolving merge conflicts.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    //Due To Mysterious Avian Interference And Resulting In A Victory For The Team From San Francisco
-    //or, in short, "Crowvertime",
+    //It won't matter which line if we change them all!
+    //I think the User Interface on this thing will be tricky.
 }
