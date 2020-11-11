@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pixel Camera</string>
+    <string name="settings_label">Default Settings</string>
+    <string name="btn_save_settings">Save Settings</string>
 </resources>
