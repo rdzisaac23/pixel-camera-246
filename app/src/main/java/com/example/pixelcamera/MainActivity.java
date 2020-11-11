@@ -2,10 +2,13 @@ package com.example.pixelcamera;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ToggleButton;
+
+import java.lang.ref.WeakReference;
 
 import static java.lang.Integer.parseInt;
 
@@ -34,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             shape = "square";
         }
-        PixelatorSettingsSaver runnable = new PixelatorSettingsSaver(new PixelatorSettings(shape, pixelSize));
+        PixelatorSettingsSaver runnable = new PixelatorSettingsSaver(new WeakReference<Activity>(this), new PixelatorSettings(shape, pixelSize));
+        Thread saveThread = new Thread(runnable, "Settings Saver Thread");
+        saveThread.start();
     }
 
 }
