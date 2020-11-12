@@ -21,7 +21,7 @@ public class PixelatorSettingsSaver implements Runnable {
     }
 
     public void run() {
-        SharedPreferences mPrefs = activity.getSharedPreferences("PixelatorSettings", MODE_PRIVATE);
+        SharedPreferences mPrefs = activity.get().getSharedPreferences("PixelatorSettings", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor;
         Gson gson = new Gson();
         String jsonString = gson.toJson(this.settingsToSave);

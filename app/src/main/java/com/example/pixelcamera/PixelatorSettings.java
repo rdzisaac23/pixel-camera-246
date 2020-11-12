@@ -1,7 +1,11 @@
 package com.example.pixelcamera;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PixelatorSettings {
+    @SerializedName("shape")
     private String defaultPixelShape = "square";
+    @SerializedName("size")
     private int defaultPixelSize = 10;
 
     public PixelatorSettings (String shape, int size) {
