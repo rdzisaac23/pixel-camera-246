@@ -2,4 +2,9 @@
     <string name="app_name">Pixel Camera</string>
     <string name="settings_label">Default Settings</string>
     <string name="btn_save_settings">Save Settings</string>
+    <string name="pixshape_square">Square</string>
+    <string name="pixshape_round">Round</string>
+    <string name="settings_pxsize">Pixel Size</string>
+    <string name="settings_pxshape">Pixel Shape</string>
+    <string name="settings_pxsize_hint">5.0</string>
 </resources>
