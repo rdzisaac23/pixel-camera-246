@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class PixelatorSettings {
     @SerializedName("shape")
-    private String defaultPixelShape = "square";
+    private String defaultPixelShape;
     @SerializedName("size")
-    private int defaultPixelSize = 5;
+    private int defaultPixelSize;
 
     public PixelatorSettings (String shape, int size) {
         this.defaultPixelShape = shape;

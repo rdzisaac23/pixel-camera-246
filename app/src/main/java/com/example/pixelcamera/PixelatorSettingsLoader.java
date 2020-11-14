@@ -13,7 +13,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class PixelatorSettingsLoader implements Runnable {
     private WeakReference<Activity> activity;
     private PixelatorSettings settingsToLoad;
-    private String TAG = "PixelatorSettingsSaver.java";
+    private String TAG = "PixelatorSettingsLoader.java";
     private final String PREFERENCE_FILE_KEY = "com.example.pixelcamera.pixelator_settings";
 
     public PixelatorSettingsLoader(WeakReference<Activity> activityWeakReference) {
@@ -26,14 +26,16 @@ public class PixelatorSettingsLoader implements Runnable {
         String shape = sharedPref.getString("shape", "square");
         int size = sharedPref.getInt("size", 5);
         this.settingsToLoad = new PixelatorSettings(shape, size);
+        Log.i(TAG, "Loading these settings: \nShape: " + shape + "\nSize: " + size + "\n");
         activity.get().runOnUiThread(() -> {
             ToggleButton shapeToggleButton = (ToggleButton) activity.get().findViewById(R.id.toggleButton);
             EditText editText = activity.get().findViewById(R.id.editTextNumber);
-            if (shape == "square") {
+            if (shape.equals("square")) {
                 shapeToggleButton.setChecked(false);
-            } else if (shape == "circle") {
+            } else if (shape.equals("circle")) {
                 shapeToggleButton.setChecked(true);
             }
+            editText.setText("" + size);
 
         });
     }
