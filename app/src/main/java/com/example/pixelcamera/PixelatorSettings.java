@@ -6,7 +6,7 @@ public class PixelatorSettings {
     @SerializedName("shape")
     private String defaultPixelShape = "square";
     @SerializedName("size")
-    private int defaultPixelSize = 10;
+    private int defaultPixelSize = 5;
 
     public PixelatorSettings (String shape, int size) {
         this.defaultPixelShape = shape;

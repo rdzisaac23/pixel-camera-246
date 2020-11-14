@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
         //Check for sharedPreferences for default settings
         //If none found then set to factory default settings
         //Then display the settings on the activity
+        PixelatorSettingsLoader loader = new PixelatorSettingsLoader(new WeakReference<Activity>(this));
+        Thread loadThread = new Thread(loader, "Settings Loader Thread");
+
     }
 
     public void button_save(View view) {
