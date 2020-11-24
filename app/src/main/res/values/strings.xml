@@ -8,4 +8,6 @@
     <string name="settings_pxshape">Pixel Shape</string>
     <string name="settings_pxsize_hint">5.0</string>
     <string name="PREFERENCE_FILE_KEY">PixelCameraSettings</string>
+    <string name="btn_New_project">Start New Project from Photo</string>
+    <string name="btn_gallery">New Project from Gallery</string>
 </resources>

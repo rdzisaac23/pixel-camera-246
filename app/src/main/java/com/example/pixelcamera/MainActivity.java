@@ -50,4 +50,8 @@ public class MainActivity extends AppCompatActivity {
         saveThread.start();
     }
 
+    public void btn_gallery(View view) {
+
+    }
+
 }
