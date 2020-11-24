@@ -10,6 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+
+/**
+ * Allows a user to select a picture and submit it for pixelation.
+ *
+ * @author Luke Draper
+ * @version 1.0
+ * @date 2020-11-24
+ *
+ */
 public class GetImageActivity extends AppCompatActivity {
 
     private static final int GALLERY_REQUEST_CODE = 123;
@@ -17,6 +26,11 @@ public class GetImageActivity extends AppCompatActivity {
     ImageView imageView;
     Button btn_gallery;
 
+    /**
+     * Creates the activity layout and creates listeners for all buttons.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +50,12 @@ public class GetImageActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Displays the image selected from the gallery when it is returned.
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
