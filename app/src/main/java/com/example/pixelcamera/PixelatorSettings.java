@@ -1,5 +1,6 @@
 package com.example.pixelcamera;
 
+/**
  * @author Luke Draper
  * @version 1.0
  * @since 11-17-2020
