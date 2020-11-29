@@ -1,16 +1,11 @@
 package com.example.pixelcamera;
 
-import com.google.gson.annotations.SerializedName;
-
-/**
  * @author Luke Draper
  * @version 1.0
  * @since 11-17-2020
  */
 public class PixelatorSettings {
-    @SerializedName("shape")
     private String defaultPixelShape;
-    @SerializedName("size")
     private int defaultPixelSize;
 
     /**
