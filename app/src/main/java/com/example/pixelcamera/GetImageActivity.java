@@ -4,8 +4,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,9 +26,14 @@ import android.widget.ImageView;
 public class GetImageActivity extends AppCompatActivity {
 
     private static final int GALLERY_REQUEST_CODE = 123;
+    public static final String IMAGE_URI = "com.example.pixelcamera.IMAGE_URI";
+    private static final String TAG = "GetImageActivity.java";
 
     ImageView imageView;
     Button btn_gallery;
+    String imagePath = "";
+    Uri imageData = null;
+
 
     /**
      * Creates the activity layout and creates listeners for all buttons.
@@ -51,7 +60,8 @@ public class GetImageActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the image selected from the gallery when it is returned.
+     * Displays the image selected from the gallery when it is returned. And stores the image's filepath
+     * in a class variable.
      * @param requestCode
      * @param resultCode
      * @param data
@@ -60,10 +70,34 @@ public class GetImageActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            Uri imageData = data.getData();
 
-            imageView.setImageURI(imageData);
+            this.imageData = data.getData();
+//            this.imageFilePath = imageData.getPath();
+
+            imageView.setImageURI(this.imageData);
+//            String[] filePath = { MediaStore.Images.Media.DATA };
+//            Cursor cursor = getContentResolver().query(imageData, filePath, null, null, null);
+//            cursor.moveToFirst();
+//            this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
         }
-
     }
+
+    public void submitImage(View view) {
+//        if (!this.imagePath.equals("")) {
+//            Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
+//            pixelatorIntent.putExtra(IMAGE_PATH, this.imagePath);
+//            startActivity(pixelatorIntent);
+//
+//        }
+        if (!this.imageData.equals(null)) {
+            Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
+            Log.i(this.TAG, "imageData: " + this.imageData);
+            pixelatorIntent.putExtra(IMAGE_URI, this.imageData);
+            startActivity(pixelatorIntent);
+
+        }
+    }
+
+
+
 }

@@ -13,4 +13,7 @@
     <string name="btn_gallery">Select image from gallery</string>
     <string name="btn_camera">Take a photo</string>
     <string name="btn_submit">Submit</string>
+    <string name="btn_draw_grid">Draw Grid</string>
+    <string name="btn_pixelate_preview" />
+    <string name="ImgView_pixelator_description">Image to be pixelated.</string>
 </resources>

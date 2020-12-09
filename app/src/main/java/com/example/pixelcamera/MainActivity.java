@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         int pixelSize;
         String sizeString = editText.getText().toString();
         if (sizeString.matches("")) {
-            pixelSize = 5;
+            pixelSize = 100;
         }
         else {
             pixelSize = abs(parseInt(sizeString));
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btn_gallery(View view) {
-        Log.i(TAG, "Sending intent to GetImage Activity.");
+        android.util.Log.d("$className$", "$METHOD_NAME$: $content$");
         Intent intent = new Intent(this, GetImageActivity.class);
         startActivity(intent);
     }

@@ -8,6 +8,9 @@ package com.example.pixelcamera;
 public class PixelatorSettings {
     private String defaultPixelShape;
     private int defaultPixelSize;
+    final int DEFAULT_PIXEL_SIZE = 100;
+    final String DEFAULT_PIXEL_SHAPE = "Square";
+
 
     /**
      * Creates a pixelator settings object with the shape and size
@@ -18,6 +21,14 @@ public class PixelatorSettings {
     public PixelatorSettings (String shape, int size) {
         this.defaultPixelShape = shape;
         this.defaultPixelSize = size;
+    }
+
+    /**
+     * Creates a PixelatorSettings object with shape and size determined by constants.
+     */
+    public PixelatorSettings () {
+        this.defaultPixelSize = DEFAULT_PIXEL_SIZE;
+        this.defaultPixelShape = DEFAULT_PIXEL_SHAPE;
     }
 
     /**
