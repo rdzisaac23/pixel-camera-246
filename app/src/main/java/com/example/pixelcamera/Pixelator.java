@@ -62,7 +62,7 @@ public class Pixelator {
         Paint paint = new Paint(); //brush
         paint.setStrokeWidth(1); //Set the line width. Unit is pixel
         paint.setAntiAlias(true); //anti-aliasing
-        paint.setColor(Color.GRAY); //brush color
+        paint.setColor(Color.WHITE); //brush color
         int size = this.settings.getDefaultPixelSize();
 
         for (int i = 0; i < bitmap.getHeight() / size; i++) {

@@ -33,39 +33,43 @@ public class PixelatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pixelator);
         Intent intent = getIntent();
-//        String imagePath = intent.getStringExtra(GetImageActivity.IMAGE_PATH);
-        Uri uri = intent.getParcelableExtra(GetImageActivity.IMAGE_URI);
-        Log.i(this.TAG, "uri: " + uri);
-        Thread bitmapThread = new Thread();
+        String imagePath = intent.getStringExtra(GetImageActivity.IMAGE_PATH);
+//        Uri uri = intent.getParcelableExtra(GetImageActivity.IMAGE_URI);
+//        Log.i(this.TAG, "uri: " + uri);
+//        Thread bitmapThread = new Thread();
+//        try {
+//            BitmapFactory.Options options = new BitmapFactory.Options();
+//            options.inJustDecodeBounds = true;
+//
+//            InputStream inputStream = getApplicationContext().getContentResolver().openInputStream(uri);
+//            BitmapFactory.decodeStream(inputStream, new Rect(), options);
+//        } catch (Exception e) {
+//            Log.e("PixelatorActivity", e.toString());
+//        }
+
+        Log.i(this.TAG, "Image File Path: " + imagePath);
+
         try {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-
-            InputStream inputStream = getApplicationContext().getContentResolver().openInputStream(uri);
-            BitmapFactory.decodeStream(inputStream, new Rect(), options);
+            FileInputStream is = new FileInputStream((new File(imagePath)));
+            this.original_image = BitmapFactory.decodeStream(is);
+            is.close();
         } catch (Exception e) {
-            Log.e("PixelatorActivity", e.toString());
+            e.printStackTrace();
         }
-
         this.imageView = findViewById(R.id.imageViewPixelator);
         imageView.setImageBitmap(original_image);
         this.current_image = this.original_image;
 
-//        try {
-//            FileInputStream is = new FileInputStream((new File(imagePath)));
-//            this.original_image = BitmapFactory.decodeStream(is);
-//            is.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
         EditText editText = findViewById(R.id.editTextPixelSize);
         SharedPreferences sharedPref = getSharedPreferences(PREFERENCE_FILE_KEY, MODE_PRIVATE);
         String shape = sharedPref.getString("shape", "square");
         int size = sharedPref.getInt("size", 100);
-        editText.setText(size);
-
+        editText.setText(Integer.toString(size));
+        Log.d(this.TAG, "Line 76" );
         this.settings = new PixelatorSettings(shape, size);
         this.pixelator = new Pixelator(this.settings);
+        Log.d(this.TAG, "End of onCreate.");
     }
 
     public void btn_draw_grid(View view) {
@@ -75,6 +79,7 @@ public class PixelatorActivity extends AppCompatActivity {
 
     public void btn_preview_pixelate(View view) {
         this.imageView.setImageBitmap(this.pixelator.pixelatePreview(this.original_image));
+
 
     }
 

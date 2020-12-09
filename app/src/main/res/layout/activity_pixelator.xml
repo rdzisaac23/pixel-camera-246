@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/settings_pxsize_hint"
+                android:autofillHints="@string/settings_pxsize_hint"
                 android:inputType="number" />
 
             <Button

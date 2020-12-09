@@ -27,6 +27,7 @@ public class GetImageActivity extends AppCompatActivity {
 
     private static final int GALLERY_REQUEST_CODE = 123;
     public static final String IMAGE_URI = "com.example.pixelcamera.IMAGE_URI";
+    public static final String IMAGE_PATH = "com.example.pixelcamera.IMAGE_PATH";
     private static final String TAG = "GetImageActivity.java";
 
     ImageView imageView;
@@ -75,27 +76,27 @@ public class GetImageActivity extends AppCompatActivity {
 //            this.imageFilePath = imageData.getPath();
 
             imageView.setImageURI(this.imageData);
-//            String[] filePath = { MediaStore.Images.Media.DATA };
-//            Cursor cursor = getContentResolver().query(imageData, filePath, null, null, null);
-//            cursor.moveToFirst();
-//            this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
+            String[] filePath = { MediaStore.Images.Media.DATA };
+            Cursor cursor = getContentResolver().query(imageData, filePath, null, null, null);
+            cursor.moveToFirst();
+            this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
         }
     }
 
     public void submitImage(View view) {
-//        if (!this.imagePath.equals("")) {
-//            Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
-//            pixelatorIntent.putExtra(IMAGE_PATH, this.imagePath);
-//            startActivity(pixelatorIntent);
-//
-//        }
-        if (!this.imageData.equals(null)) {
+        if (!this.imagePath.equals("")) {
             Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
-            Log.i(this.TAG, "imageData: " + this.imageData);
-            pixelatorIntent.putExtra(IMAGE_URI, this.imageData);
+            pixelatorIntent.putExtra(IMAGE_PATH, this.imagePath);
             startActivity(pixelatorIntent);
 
         }
+//        if (!this.imageData.equals(null)) {
+//            Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
+//            Log.i(this.TAG, "imageData: " + this.imageData);
+//            pixelatorIntent.putExtra(IMAGE_URI, this.imageData);
+//            startActivity(pixelatorIntent);
+//
+//        }
     }
 
 
