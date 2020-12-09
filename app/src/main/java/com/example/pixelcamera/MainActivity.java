@@ -2,63 +2,16 @@ package com.example.pixelcamera;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.widget.ToggleButton;
-
-import java.lang.ref.WeakReference;
-
-import static java.lang.Integer.parseInt;
-import static java.lang.Math.abs;
-
+//The Unlimited Tacos collect 10! Sun 2 smiles.
+//This is Luke's merge conflict.
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = "MainActivity.java";
-
+    //Let's practice resolving merge conflicts.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Check for sharedPreferences for default settings
-        //If none found then set to factory default settings
-        //Then display the settings on the activity
-        PixelatorSettingsLoader loader = new PixelatorSettingsLoader(new WeakReference<Activity>(this));
-        Thread loadThread = new Thread(loader, "Settings Loader Thread");
-        loadThread.start();
     }
-
-    public void button_save(View view) {
-        EditText editText = (EditText) findViewById(R.id.editTextNumber);
-        int pixelSize;
-        String sizeString = editText.getText().toString();
-        if (sizeString.matches("")) {
-            pixelSize = 5;
-        }
-        else {
-            pixelSize = abs(parseInt(sizeString));
-        }
-        ToggleButton shapeToggleButton = (ToggleButton) findViewById(R.id.toggleButton); // initiate a toggle button
-        boolean ToggleButtonState = shapeToggleButton.isChecked(); // check current state of a toggle button (true or false).
-        String shape;
-        if (ToggleButtonState) {
-            shape = "circle";
-        } else {
-            shape = "square";
-        }
-        PixelatorSettingsSaver runnable = new PixelatorSettingsSaver(new WeakReference<Activity>(this), new PixelatorSettings(shape, pixelSize));
-        Thread saveThread = new Thread(runnable, "Settings Saver Thread");
-        saveThread.start();
-    }
-
-    public void btn_gallery(View view) {
-        Log.i(TAG, "Sending intent to GetImage Activity.");
-        Intent intent = new Intent(this, GetImageActivity.class);
-        startActivity(intent);
-    }
-
+    //It won't matter which line if we change them all!
+    //I think the User Interface on this thing will be tricky.
 }
