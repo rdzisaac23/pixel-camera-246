@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.lang.ref.WeakReference;
 
 public class PixelatorActivity extends AppCompatActivity {
     private final String PREFERENCE_FILE_KEY = "com.example.pixelcamera.pixelator_settings";
@@ -66,10 +67,9 @@ public class PixelatorActivity extends AppCompatActivity {
         String shape = sharedPref.getString("shape", "square");
         int size = sharedPref.getInt("size", 100);
         editText.setText(Integer.toString(size));
-        Log.d(this.TAG, "Line 76" );
         this.settings = new PixelatorSettings(shape, size);
         this.pixelator = new Pixelator(this.settings);
-        Log.d(this.TAG, "End of onCreate.");
+        Log.d(this.TAG, "End of PixelatorActivity onCreate.");
     }
 
     public void btn_draw_grid(View view) {
@@ -78,7 +78,10 @@ public class PixelatorActivity extends AppCompatActivity {
     }
 
     public void btn_preview_pixelate(View view) {
-        this.imageView.setImageBitmap(this.pixelator.pixelatePreview(this.original_image));
+//        this.imageView.setImageBitmap(this.pixelator.pixelatePreview(this.original_image));
+        Runnable runnable = new PixelateFromImage(this.imageView, this.pixelator, this.original_image);
+        Thread previewPxThread = new Thread(runnable);
+        previewPxThread.start();
 
 
     }
