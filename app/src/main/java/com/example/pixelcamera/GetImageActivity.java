@@ -51,6 +51,7 @@ public class GetImageActivity extends AppCompatActivity {
         btn_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent();
                 intent.setType("image/^");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -85,18 +86,12 @@ public class GetImageActivity extends AppCompatActivity {
 
     public void submitImage(View view) {
         if (!this.imagePath.equals("")) {
+
             Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
             pixelatorIntent.putExtra(IMAGE_PATH, this.imagePath);
             startActivity(pixelatorIntent);
 
         }
-//        if (!this.imageData.equals(null)) {
-//            Intent pixelatorIntent = new Intent(this, PixelatorActivity.class);
-//            Log.i(this.TAG, "imageData: " + this.imageData);
-//            pixelatorIntent.putExtra(IMAGE_URI, this.imageData);
-//            startActivity(pixelatorIntent);
-//
-//        }
     }
 
 
