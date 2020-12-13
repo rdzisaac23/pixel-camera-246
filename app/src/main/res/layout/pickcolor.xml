@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<!--    Test to pick color from saitama-->
+    <ImageView
+        android:id="@+id/ImageView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:contentDescription="test"
+        android:src="@drawable/saitama_test"
+        app:srcCompat="@color/black"
+        tools:srcCompat="@color/black" />
+
+<!--    Set picked color to this view-->
+    <View
+        android:id="@+id/ColorView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+<!--    HEX RGB-->
+    <TextView
+        android:id="@+id/ColorPicked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hex_nrgb"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+
+</LinearLayout>

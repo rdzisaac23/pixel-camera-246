@@ -13,4 +13,5 @@
     <string name="btn_gallery">Select image from gallery</string>
     <string name="btn_camera">Take a photo</string>
     <string name="btn_submit">Submit</string>
+    <string name="hex_nrgb">HEX: \nRGB;</string>
 </resources>
