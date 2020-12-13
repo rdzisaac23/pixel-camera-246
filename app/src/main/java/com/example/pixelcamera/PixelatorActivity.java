@@ -35,18 +35,6 @@ public class PixelatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pixelator);
         Intent intent = getIntent();
         String imagePath = intent.getStringExtra(GetImageActivity.IMAGE_PATH);
-//        Uri uri = intent.getParcelableExtra(GetImageActivity.IMAGE_URI);
-//        Log.i(this.TAG, "uri: " + uri);
-//        Thread bitmapThread = new Thread();
-//        try {
-//            BitmapFactory.Options options = new BitmapFactory.Options();
-//            options.inJustDecodeBounds = true;
-//
-//            InputStream inputStream = getApplicationContext().getContentResolver().openInputStream(uri);
-//            BitmapFactory.decodeStream(inputStream, new Rect(), options);
-//        } catch (Exception e) {
-//            Log.e("PixelatorActivity", e.toString());
-//        }
 
         Log.i(this.TAG, "Image File Path: " + imagePath);
 
@@ -78,7 +66,6 @@ public class PixelatorActivity extends AppCompatActivity {
     }
 
     public void btn_preview_pixelate(View view) {
-//        this.imageView.setImageBitmap(this.pixelator.pixelatePreview(this.original_image));
         Runnable runnable = new PixelateFromImage(this.imageView, this.pixelator, this.original_image);
         Thread previewPxThread = new Thread(runnable);
         previewPxThread.start();
