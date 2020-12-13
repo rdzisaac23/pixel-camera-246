@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
@@ -134,6 +133,10 @@ public class Pixelator {
         B = B & 0x000000FF;
 
         return A | R | G | B;
+    }
+
+    public void setSettings(PixelatorSettings settings) {
+        this.settings = settings;
     }
 
 

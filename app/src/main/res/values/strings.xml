@@ -18,4 +18,6 @@
     <string name="ImgView_pixelator_description">Image to be pixelated.</string>
 
     <string name="hex_nrgb">HEX: \nRGB;</string>
+    <string name="label_px_size">Enter Pixel Size:</string>
+    <string name="btn_px_size">Apply Pixel Size</string>
 </resources>

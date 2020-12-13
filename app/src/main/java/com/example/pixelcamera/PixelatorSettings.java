@@ -1,15 +1,23 @@
 package com.example.pixelcamera;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.util.Log;
+
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * @author Luke Draper
  * @version 1.0
  * @since 11-17-2020
  */
 public class PixelatorSettings {
+    private static final String PREFERENCE_FILE_KEY = "com.example.pixelcamera.pixelator_settings";
+    private static final String TAG = "PixelatorSettings.java";
     private String defaultPixelShape;
     private int defaultPixelSize;
-    final int DEFAULT_PIXEL_SIZE = 100;
-    final String DEFAULT_PIXEL_SHAPE = "Square";
+    final static int DEFAULT_PIXEL_SIZE = 100;
+    final static String DEFAULT_PIXEL_SHAPE = "Square";
 
 
     /**
@@ -28,6 +36,15 @@ public class PixelatorSettings {
      */
     public PixelatorSettings () {
         this.defaultPixelSize = DEFAULT_PIXEL_SIZE;
+        this.defaultPixelShape = DEFAULT_PIXEL_SHAPE;
+    }
+
+    /**
+     * Creates PixelatorSettings object from given size with the shape determined by constant.
+     * @param size
+     */
+    public PixelatorSettings (int size) {
+        this.defaultPixelSize = size;
         this.defaultPixelShape = DEFAULT_PIXEL_SHAPE;
     }
 
@@ -62,5 +79,14 @@ public class PixelatorSettings {
      */
     public void setDefaultPixelShape(String defaultPixelShape) {
         this.defaultPixelShape = defaultPixelShape;
+    }
+
+    public static PixelatorSettings loadSettings(Activity activity) {
+        SharedPreferences sharedPref = activity.getSharedPreferences(PREFERENCE_FILE_KEY, MODE_PRIVATE);
+        String shape = sharedPref.getString("shape", DEFAULT_PIXEL_SHAPE);
+        int size = sharedPref.getInt("size", DEFAULT_PIXEL_SIZE);
+        PixelatorSettings settingsToLoad = new PixelatorSettings(shape, size);
+        Log.i(TAG, "Loading these settings: \nShape: " + shape + "\nSize: " + size + "\n");
+        return settingsToLoad;
     }
 }
