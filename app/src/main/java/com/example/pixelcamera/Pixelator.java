@@ -135,6 +135,10 @@ public class Pixelator {
         return A | R | G | B;
     }
 
+    public void setSettings(PixelatorSettings settings) {
+        this.settings = settings;
+    }
+
 
 
 }

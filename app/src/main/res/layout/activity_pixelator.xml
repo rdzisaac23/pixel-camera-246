@@ -32,6 +32,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_px_size" />
+
             <EditText
                 android:id="@+id/editTextPixelSize"
                 android:layout_width="wrap_content"
@@ -40,6 +46,13 @@
                 android:hint="@string/settings_pxsize_hint"
                 android:autofillHints="@string/settings_pxsize_hint"
                 android:inputType="number" />
+
+            <Button
+                android:id="@+id/buttonApplyPx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btn_apply_px"
+                android:text="@string/btn_px_size" />
 
             <Button
                 android:id="@+id/button_draw_grid"

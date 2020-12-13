@@ -40,6 +40,15 @@ public class PixelatorSettings {
     }
 
     /**
+     * Creates PixelatorSettings object from given size with the shape determined by constant.
+     * @param size
+     */
+    public PixelatorSettings (int size) {
+        this.defaultPixelSize = size;
+        this.defaultPixelShape = DEFAULT_PIXEL_SHAPE;
+    }
+
+    /**
      * Returns the integer of the current size to use as default pixel size.
      * @return int defaultPixelSize
      */

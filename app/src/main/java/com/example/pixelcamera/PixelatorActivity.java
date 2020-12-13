@@ -2,6 +2,7 @@ package com.example.pixelcamera;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -105,6 +106,15 @@ public class PixelatorActivity extends AppCompatActivity {
         Runnable runnable = new PixelateFromImage(this.imageView, this.pixelator, this.original_image);
         Thread previewPxThread = new Thread(runnable);
         previewPxThread.start();
+    }
+
+    public void btn_apply_px(View view) {
+        EditText editText = findViewById(R.id.editTextPixelSize);
+        String value = editText.getText().toString();
+        int size = Integer.parseInt(value);
+        PixelatorSettings settings = new PixelatorSettings(size);
+        this.pixelator.setSettings(settings);
+        PixelatorSettingsSaver saver = new PixelatorSettingsSaver(new WeakReference<Activity>(this), settings);
     }
 
 }
