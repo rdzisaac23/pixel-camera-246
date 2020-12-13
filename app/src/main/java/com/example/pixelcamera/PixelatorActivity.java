@@ -42,6 +42,7 @@ public class PixelatorActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String imagePath = intent.getStringExtra(GetImageActivity.IMAGE_PATH);
 
+
         this.imageView = findViewById(R.id.ImageView);
         mColorPicked = findViewById(R.id.ColorPicked);
         mColorView = findViewById(R.id.ColorView);
