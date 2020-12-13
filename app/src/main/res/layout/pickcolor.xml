@@ -14,7 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:contentDescription="test"
-        android:src="@drawable/saitama_test" />
+        android:src="@drawable/saitama_test"
+        app:srcCompat="@color/black"
+        tools:srcCompat="@color/black" />
 
 <!--    Set picked color to this view-->
     <View
