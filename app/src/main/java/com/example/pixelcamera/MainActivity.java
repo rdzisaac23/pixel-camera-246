@@ -1,28 +1,36 @@
 package com.example.pixelcamera;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-//The Unlimited Tacos collect 10! Sun 2 smiles.
-//This is Luke's merge conflict.
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import java.lang.ref.WeakReference;
+
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.abs;
+
 public class MainActivity extends AppCompatActivity {
-    //Let's practice resolving merge conflicts.
+    public static final String TAG = "MainActivity.java";
 
-    ImageView mImageView;
-    View mColorView;
-    TextView mColorPicked;
-
-    Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pickcolor);
+        setContentView(R.layout.activity_main);
+        //Check for sharedPreferences for default settings
+        //If none found then set to factory default settings
+        //Then display the settings on the activity
+        PixelatorSettingsLoader loader = new PixelatorSettingsLoader(new WeakReference<Activity>(this));
+        Thread loadThread = new Thread(loader, "Settings Loader Thread");
+        loadThread.start();
+    }
 
     public void button_save(View view) {
         EditText editText = (EditText) findViewById(R.id.editTextNumber);
@@ -52,41 +60,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GetImageActivity.class);
         startActivity(intent);
     }
-      
-        mImageView = findViewById(R.id.ImageView);
-        mColorPicked = findViewById(R.id.ColorPicked);
-        mColorView = findViewById(R.id.ColorView);
 
-        mImageView.setDrawingCacheEnabled(true);
-        mImageView.buildDrawingCache(true);
-
-        // image view on touch
-
-        mImageView.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE){
-                bitmap = mImageView.getDrawingCache();
-
-                int pixel = bitmap.getPixel((int)event.getX(), (int)event.getY());
-
-                //getting RGB values
-                int r = Color.red(pixel);
-                int g = Color.green(pixel);
-                int b = Color.blue(pixel);
-                int a = Color.alpha(pixel);
-
-                //Hex Value
-                String hex = "#"+ Integer.toHexString(pixel);
-
-                //Background Color
-                mColorView.setBackgroundColor(Color.argb(a,r,g,b));
-
-                //String Text View
-                mColorPicked.setText("RGB: "+r+", "+g+", "+b+ "\nHEX: "+hex);
-            }
-            return true;
-        });
-
-    }
-    //It won't matter which line if we change them all!
-    //I think the User Interface on this thing will be tricky.
 }
