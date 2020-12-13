@@ -6,12 +6,16 @@
     <string name="pixshape_round">Round</string>
     <string name="settings_pxsize">Pixel Size</string>
     <string name="settings_pxshape">Pixel Shape</string>
-    <string name="settings_pxsize_hint">5.0</string>
+    <string name="settings_pxsize_hint">100</string>
     <string name="PREFERENCE_FILE_KEY">PixelCameraSettings</string>
     <string name="btn_New_project">Start New Project from Photo</string>
     <string name="btn_image">New Project from Gallery</string>
     <string name="btn_gallery">Select image from gallery</string>
     <string name="btn_camera">Take a photo</string>
     <string name="btn_submit">Submit</string>
+    <string name="btn_draw_grid">Draw Grid</string>
+    <string name="btn_pixelate_preview" >Show Pixelation Preview</string>
+    <string name="ImgView_pixelator_description">Image to be pixelated.</string>
+
     <string name="hex_nrgb">HEX: \nRGB;</string>
 </resources>
