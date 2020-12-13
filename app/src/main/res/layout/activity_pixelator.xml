@@ -54,6 +54,20 @@
                 android:layout_height="wrap_content"
                 android:onClick="btn_preview_pixelate"
                 android:text="@string/btn_pixelate_preview" />
+            <!--    Set picked color to this view-->
+            <View
+                android:id="@+id/ColorView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+            <!--    HEX RGB-->
+            <TextView
+                android:id="@+id/ColorPicked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hex_nrgb"
+                android:textColor="#000"
+                android:textSize="18sp"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
