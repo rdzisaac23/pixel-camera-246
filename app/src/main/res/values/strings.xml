@@ -16,4 +16,6 @@
     <string name="btn_draw_grid">Draw Grid</string>
     <string name="btn_pixelate_preview" >Show Pixelation Preview</string>
     <string name="ImgView_pixelator_description">Image to be pixelated.</string>
+
+    <string name="hex_nrgb">HEX: \nRGB;</string>
 </resources>

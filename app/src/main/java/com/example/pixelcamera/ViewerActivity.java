@@ -9,11 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-//The Unlimited Tacos collect 10! Sun 2 smiles.
-//This is Luke's merge conflict.
-public class MainActivity extends AppCompatActivity {
-    //Let's practice resolving merge conflicts.
 
+public class ViewerActivity extends AppCompatActivity {
     ImageView mImageView;
     View mColorView;
     TextView mColorPicked;
@@ -24,35 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pickcolor);
 
-    public void button_save(View view) {
-        EditText editText = (EditText) findViewById(R.id.editTextNumber);
-        int pixelSize;
-        String sizeString = editText.getText().toString();
-        if (sizeString.matches("")) {
-            pixelSize = 100;
-        }
-        else {
-            pixelSize = abs(parseInt(sizeString));
-        }
-        ToggleButton shapeToggleButton = (ToggleButton) findViewById(R.id.toggleButton); // initiate a toggle button
-        boolean ToggleButtonState = shapeToggleButton.isChecked(); // check current state of a toggle button (true or false).
-        String shape;
-        if (ToggleButtonState) {
-            shape = "circle";
-        } else {
-            shape = "square";
-        }
-        PixelatorSettingsSaver runnable = new PixelatorSettingsSaver(new WeakReference<Activity>(this), new PixelatorSettings(shape, pixelSize));
-        Thread saveThread = new Thread(runnable, "Settings Saver Thread");
-        saveThread.start();
-    }
-
-    public void btn_gallery(View view) {
-        android.util.Log.d("$className$", "$METHOD_NAME$: $content$");
-        Intent intent = new Intent(this, GetImageActivity.class);
-        startActivity(intent);
-    }
-      
         mImageView = findViewById(R.id.ImageView);
         mColorPicked = findViewById(R.id.ColorPicked);
         mColorView = findViewById(R.id.ColorView);
@@ -87,6 +55,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    //It won't matter which line if we change them all!
-    //I think the User Interface on this thing will be tricky.
 }
